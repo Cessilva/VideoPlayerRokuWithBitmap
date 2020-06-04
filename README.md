@@ -1,34 +1,18 @@
 # VideoPlayerRokuWithBitmap
 roBitmap
-El componente roBitmap contiene datos de imagen y proporciona una interfaz (ifDraw2D) para dibujar. 
-Los Bitmaps se pueden usar para una variedad de propósitos, como sprites, composición o como búffers dobles.
-Almacena cuatro canales de color: rojo, verde, azul y alfa, con 32 bits por píxel. 
-Pueden tener cualquier tamaño arbitrario hasta 2048x2048. Sin embargo, 
-el bitmap de tamaño máximo utiliza 16 MB de memoria, por lo que existen limitaciones
-prácticas de memoria que obligarían a tamaños de bitmap más pequeños. 
-Las coordenadas (x, y) para Bitmaps 2D tienen un origen (0,0) en la parte superior izquierda. 
-roBitmap siempre está fuera de pantalla. 
-El roScreen superior es la única superficie ifDraw2D que se muestra. 
-roBitmap representa algo sobre lo que se puede dibujar.
+El componente roBitmap contiene datos de imagen y proporciona una interfaz (ifDraw2D) para dibujar. Los Bitmaps se pueden usar para una variedad de propósitos, como sprites, composición o como búffers dobles.Almacena cuatro canales de color: rojo, verde, azul y alfa, con 32 bits por píxel. Pueden tener cualquier tamaño arbitrario hasta 2048x2048. Sin embargo, el bitmap de tamaño máximo utiliza 16 MB de memoria, por lo que existen limitacionesprácticas de memoria que obligarían a tamaños de bitmap más pequeños. 
+Las coordenadas (x, y) para Bitmaps 2D tienen un origen (0,0) en la parte superior izquierda. roBitmap siempre está fuera de pantalla. El roScreen superior es la única superficie ifDraw2D que se muestra. roBitmap representa algo sobre lo que se puede dibujar.
 
-Las operaciones de dibujo en un bitmap (u otra superficie con la interfaz ifDraw2D, 
-como un roScreen) se recortan para que solo se represente la parte que está 
-dentro de sus límites. 
+Las operaciones de dibujo en un bitmap (u otra superficie con la interfaz ifDraw2D, como un roScreen) se recortan para que solo se represente la parte que está dentro de sus límites. 
 
-Las coordenadas X,Y que especifican una ubicación en un bitmap para renderizar pueden 
-ser positivas o negativas. Negativo implica que la parte superior e izquierda del objeto
-renderizado se recortará. El mismo bitmap no se puede utilizar como origen y destino 
-en una sola llamada DrawObject ().
+Las coordenadas X,Y que especifican una ubicación en un bitmap para renderizar pueden ser positivas o negativas. Negativo implica que la parte superior e izquierda del objetorenderizado se recortará. El mismo bitmap no se puede utilizar como origen y destino en una sola llamada DrawObject ().
 
-Existen limitaciones cuando se utiliza el bitmap en pantalla como fuente. 
-Por ejemplo, la combinación alfa puede no funcionar.
+Existen limitaciones cuando se utiliza el bitmap en pantalla como fuente. Por ejemplo, la combinación alfa puede no funcionar.
 
 Creacion de un roBitmap vacío con CreateObject():
 CreateObject("roBitmap", bitmapProps As Object)
 
-bitmapProps es un roAssociativeArray con parámetros de ancho (entero), alto (entero) 
-y AlphaEnable (booleano) y nombre (cadena). 
-El contenido de un RoBitmap vacío se inicializa a cero (negro transparente).
+bitmapProps es un roAssociativeArray con parámetros de ancho (entero), alto (entero) y AlphaEnable (booleano) y nombre (cadena). El contenido de un RoBitmap vacío se inicializa a cero (negro transparente).
 
 Ejemplo: 
 CreateObject("roBitmap",{width:10,height:10,AlphaEnable:false,name:"MyBitmapName"})
@@ -36,13 +20,9 @@ CreateObject("roBitmap",{width:10,height:10,AlphaEnable:false,name:"MyBitmapName
 Un roBitmap también puede cargar datos de imagen desde un archivo:
 CreateObject ("roBitmap", String filename)
 
-roBitmap,roRegion y roScreen implementan ifDraw2D
-Las coordenadas (x, y) para esta interfaz se basan en un origen (0,0) en la parte superior 
-izquierda.
+roBitmap,roRegion y roScreen implementan ifDraw2D,las coordenadas (x, y) para esta interfaz se basan en un origen (0,0) en la parte superior izquierda.
 
-Los valores de píxel de bitmap y los valores de color siempre se representan como valores
-de color RGBA enteros de 32 bits. Es decir, el rojo está en el byte más significativo 
-y el alfa está en el byte menos significativo.
+Los valores de píxel de bitmap y los valores de color siempre se representan como valoresde color RGBA enteros de 32 bits. Es decir, el rojo está en el byte más significativo y el alfa está en el byte menos significativo.
 
 METODOS SOPORTADOS 
 Clear(rgba as Integer)
@@ -55,17 +35,12 @@ GetHeight()
 Gets the height of the bitmap in pixels return the height of the bitmap in pixels.
 
 GetByteArray(x as Integer, y as Integer, width as Integer, height as Integer) as Object
-Gets the RGBA pixel values for the specified rectangle, Return an roByteArray representing
-the RGBA pixel values for the specified rectangle.
+Gets the RGBA pixel values for the specified rectangle, Return an roByteArray representing the RGBA pixel values for the specified rectangle.
 
 GetPng(x as Integer, width as Integer, y as Integer, height as Integer) as Object
-Gets PNG image data for the specified area of the bitmap. The PNG is in 32-bit RGBA format.
-Return an roByteArray object containing PNG image data for the specified area of the bitmap.
-If the coordinates are out of bounds, or the PNG conversion fails for any reason, 
-then invalid is returned
+Gets PNG image data for the specified area of the bitmap. The PNG is in 32-bit RGBA format.Return an roByteArray object containing PNG image data for the specified area of the bitmap.If the coordinates are out of bounds, or the PNG conversion fails for any reason, then invalid is returned
 
 Example:
-
 Here's an example of how to implement a image, and take a part of it with a region.
 Screen = CreateObject("roScreen",false,1280,720)
 bitmap=CreateObject("roBitmap","pkg:/images/logo3.png")
