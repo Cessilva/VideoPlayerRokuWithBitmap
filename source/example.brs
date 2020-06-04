@@ -5,9 +5,9 @@ bitmap=CreateObject("roBitmap","pkg:/images/logo3.png")
 print bitmap.GetWidth() 
 print bitmap.GetHeight() 
 'Region es una parte del bitmap, Escoge toda la imagen 
-myRegion=CreateObject("roRegion", bitmap,0,0,bitmap.GetWidth()-200,bitmap.GetHeight()-200)
+'myRegion=CreateObject("roRegion", bitmap,0,0,bitmap.GetWidth()-200,bitmap.GetHeight()-200)
 'Escoge solo un cacho y el cacho que esta 200 en "x" y 30  en "y"
-myRegion=CreateObject("roRegion", bitmap,200,2024/18,200,2024/18)
+myRegion=CreateObject("roRegion", bitmap,200*2,(2024/18)*5,200,2024/18)
 'Una bandera que especifica si el ajuste de la región está habilitado. 
 'Si este indicador se establece en falso, la parte de la región más allá de 
 'los límites de su mapa de bits no se representa.
