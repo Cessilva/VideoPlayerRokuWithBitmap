@@ -9,47 +9,40 @@ Las coordenadas X,Y que especifican una ubicación en un bitmap para renderizar 
 
 Existen limitaciones cuando se utiliza el bitmap en pantalla como fuente. Por ejemplo, la combinación alfa puede no funcionar.
 
-Creacion de un roBitmap vacío con CreateObject():
-
+# Creacion de un roBitmap vacío con CreateObject():
 CreateObject("roBitmap", bitmapProps As Object)
 
-bitmapProps es un roAssociativeArray con parámetros de ancho (entero), alto (entero) y AlphaEnable (booleano) y nombre (cadena). El contenido de un RoBitmap vacío se inicializa a cero (negro transparente).
+# bitmapProps 
+es un roAssociativeArray con parámetros de ancho (entero), alto (entero) y AlphaEnable (booleano) y nombre (cadena). El contenido de un RoBitmap vacío se inicializa a cero (negro transparente).
 
 Ejemplo: 
-
 CreateObject("roBitmap",{width:10,height:10,AlphaEnable:false,name:"MyBitmapName"})
 
 Un roBitmap también puede cargar datos de imagen desde un archivo:
-
 CreateObject ("roBitmap", String filename)
 
 roBitmap,roRegion y roScreen implementan ifDraw2D,las coordenadas (x, y) para esta interfaz se basan en un origen (0,0) en la parte superior izquierda.
 
 Los valores de píxel de bitmap y los valores de color siempre se representan como valoresde color RGBA enteros de 32 bits. Es decir, el rojo está en el byte más significativo y el alfa está en el byte menos significativo.
 
-METODOS SOPORTADOS 
+# METODOS SOPORTADOS 
 
-Clear(rgba as Integer)
-
+-Clear(rgba as Integer)
 Clears the bitmap, and fills it with the specified RGBA color.
 
-GetWidth() 
-
+-GetWidth() 
 Gets the width of the bitmap,return the width of the bitmap in pixels.
 
-GetHeight()
-
+-GetHeight()
 Gets the height of the bitmap in pixels return the height of the bitmap in pixels.
 
-GetByteArray(x as Integer, y as Integer, width as Integer, height as Integer) as Object
-
+-GetByteArray(x as Integer, y as Integer, width as Integer, height as Integer) as Object
 Gets the RGBA pixel values for the specified rectangle, Return an roByteArray representing the RGBA pixel values for the specified rectangle.
 
-GetPng(x as Integer, width as Integer, y as Integer, height as Integer) as Object
-
+-GetPng(x as Integer, width as Integer, y as Integer, height as Integer) as Object
 Gets PNG image data for the specified area of the bitmap. The PNG is in 32-bit RGBA format.Return an roByteArray object containing PNG image data for the specified area of the bitmap.If the coordinates are out of bounds, or the PNG conversion fails for any reason, then invalid is returned
 
-Example:
+# Example:
 Here's an example of how to implement a image, and take a part of it with a region.
 - Screen = CreateObject("roScreen",false,1280,720)
 - bitmap=CreateObject("roBitmap","pkg:/images/logo3.png")
