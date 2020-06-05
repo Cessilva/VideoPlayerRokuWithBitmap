@@ -1,8 +1,10 @@
-?"HI bbys"
+?"HI"
 Screen = CreateObject("roScreen",false,1280,720)
 bitmap=CreateObject("roBitmap","pkg:/images/logo3.png")
 myRegion=CreateObject("roRegion", bitmap,0,0,195,2024/18)
-Screen.DrawObject(50, 10, myRegion)
+'DrawScaledObject(x as Integer, y as Integer, scaleX as Float, scaleY as Float, src as Object) as Boolean
+'Screen.DrawObject(50, 10, myRegion)
+Screen.DrawScaledObject(50, 10,1.5,1.5, myRegion)
 Screen.Finish()
 m.port = CreateObject("roMessagePort")
 Screen.SetPort(m.port)
@@ -28,14 +30,16 @@ pressedState = -1 ' If > 0, is the button currently in pressed state
                         myRegion.Offset(200,0,0,0)
                          print "dx:";dx;myRegion.getx()
                         print "dy:";dy;myRegion.gety()
-                        Screen.drawobject(50,10,myRegion)
+                        'Screen.drawobject(50,10,myRegion)
+                        Screen.DrawScaledObject(50, 10,1.5,1.5, myRegion)
                         Screen.finish()   
                         else 
                         ?"Alla"
                         dy=dy+1
                         dx=0
                         myRegion.Offset(-myRegion.getx(),2024/18,0,0)
-                        Screen.drawobject(50, 10,myRegion)
+                        'Screen.drawobject(50, 10,myRegion)
+                        Screen.DrawScaledObject(50, 10,1.5,1.5, myRegion)
                         Screen.finish() 
                         end if
                         ?"RIGHT"
@@ -48,7 +52,8 @@ pressedState = -1 ' If > 0, is the button currently in pressed state
                         myRegion.Offset(1800,-2024/18,0,0)
                         print "dx:";dx;myRegion.getx()
                         print "dy:";dy;myRegion.gety()
-                        Screen.drawobject(50, 10,myRegion)
+                        'Screen.drawobject(50, 10,myRegion)
+                        Screen.DrawScaledObject(50, 10,1.5,1.5, myRegion)
                         Screen.finish() 
                         else 
                         dx=dx-1
@@ -56,7 +61,8 @@ pressedState = -1 ' If > 0, is the button currently in pressed state
                         myRegion.Offset(-200,0,0,0)
                         print "dx:";dx;myRegion.getx()
                         print "dy:";dy;myRegion.gety()
-                        Screen.drawobject(50,10,myRegion)
+                        'Screen.drawobject(50,10,myRegion)
+                        Screen.DrawScaledObject(50, 10,1.5,1.5, myRegion)
                         Screen.finish()  
                         end if
                         ?"LEFT"
@@ -67,8 +73,6 @@ pressedState = -1 ' If > 0, is the button currently in pressed state
                 else if keypressed=2 or keypressed=3 or keypressed=4 or keypressed=5 then 
 		       pressedState = -1
                 end if
-
-
 	' else if msg = invalid then
     '             print "eventLoop timeout pressedState = "; pressedState
     '             if pressedState=codes.BUTTON_UP_PRESSED then 
@@ -83,17 +87,3 @@ pressedState = -1 ' If > 0, is the button currently in pressed state
         end if
     end while
 
-' function zip(xd,yd)
-' myRegion.Offset(xd,yd,200,2024/18)
-' Screen.drawobject(50, 10,myRegion)
-' Screen.finish()
-' end function
-
-sleep(50000)
-' Vamos a hacer una funcion 
-
-' function Zip(screen, region, xd, yd)
-'     region.Offset(200*xd,(2024/18)*yd,200,2024/18)
-'     screen.drawobject(50, 10, region)
-'     'screen.SwapBuffers()
-' end function
