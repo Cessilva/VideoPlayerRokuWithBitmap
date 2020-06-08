@@ -1,5 +1,8 @@
 ?"HI"
-Screen = CreateObject("roScreen",false,1280,720)
+white=&hFFFFFF00
+Screen = CreateObject("roScreen",false,854,480)
+Screen.Clear(white)
+' dfDrawImage(screen, "myphoto.jpg",0,0)
 bitmap=CreateObject("roBitmap","pkg:/images/logo3.png")
 myRegion=CreateObject("roRegion", bitmap,0,0,195,2024/18)
 'DrawScaledObject(x as Integer, y as Integer, scaleX as Float, scaleY as Float, src as Object) as Boolean

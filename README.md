@@ -66,3 +66,12 @@ Here's an example of how to implement a image, and take a part of it with a regi
 - Screen.DrawObject(50, 10, myRegion)
 - Screen.Finish()
 - sleep(50000)
+
+https://github.com/BenjaminAdams/Reddit-Roku-Screensaver/blob/master/source/viewImage.brs
+https://community.roku.com/t5/Roku-Developer-Program/roBitmap-Scale/td-p/423656
+https://blog.roku.com/developer/2012/09/07/sprites-and-animations-using-the-2d-api
+https://community.roku.com/t5/Roku-Developer-Program/Mask-an-image-show-only-part-of-an-image/td-p/471028
+https://developer.roku.com/es-mx/docs/references/brightscript/interfaces/ifdraw2d.md
+https://developer.roku.com/es-mx/docs/references/brightscript/components/robitmap.md
+https://developer.roku.com/es-mx/docs/references/brightscript/components/roregion.md
+https://developer.roku.com/es-mx/docs/references/brightscript/interfaces/ifregion.md
